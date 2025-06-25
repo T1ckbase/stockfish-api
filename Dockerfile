@@ -4,6 +4,10 @@ EXPOSE 7860
 
 WORKDIR /app
 
+RUN apt-get update && \
+    apt-get install -y curl tar --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/*
+
 # Prefer not to run as root.
 USER deno
 
