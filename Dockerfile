@@ -5,7 +5,7 @@ EXPOSE 7860
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install -y curl tar --no-install-recommends && \
+    apt-get install -y curl tar ca-certificates --no-install-recommends && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -L https://github.com/official-stockfish/Stockfish/releases/download/sf_17.1/stockfish-ubuntu-x86-64.tar -o /tmp/stockfish.tar && \
