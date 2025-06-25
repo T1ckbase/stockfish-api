@@ -1,5 +1,7 @@
 FROM denoland/deno:latest
 
+USER root
+
 EXPOSE 7860
 
 WORKDIR /app
@@ -14,9 +16,6 @@ RUN curl -L https://github.com/official-stockfish/Stockfish/releases/download/sf
     rm -rf /tmp/stockfish /tmp/stockfish.tar
 
 RUN chmod +x /app/stockfish-ubuntu-x86-64
-
-# Prefer not to run as root.
-USER deno
 
 RUN deno install --entrypoint main.ts
 
